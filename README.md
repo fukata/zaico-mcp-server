@@ -1,18 +1,19 @@
-# Zaico MCP Server
+# zaico-mcp-server
 
-Zaico MCP Serverは、Zaico APIとMark3Labs MCPを統合するためのサーバーアプリケーションです。
+zaico-mcp-serverは、zaico APIとMark3Labs MCPを統合するためのサーバーアプリケーションです。
 
 ## 機能
 
-- Zaico APIとの連携
-- Mark3Labs MCPとの統合
-- 設定ファイルによる柔軟な設定管理
-- ログ出力機能
+- 在庫データ
+  - 一覧取得
+  - 個別取得
+  - 作成
+  - 更新
+  - 削除
 
 ## 必要条件
 
 - Go 1.23.7以上
-- 必要な環境変数の設定
 
 ## インストール
 
@@ -22,19 +23,14 @@ go get github.com/fukata/zaico-mcp-server
 
 ## 使用方法
 
-1. 設定ファイルを作成します（`config.yaml`）
-2. サーバーを起動します：
-
 ```bash
-./zaico-mcp-server
+./zaico-mcp-server --zaico-api-key <APIキー>
 ```
 
 ## 設定
 
 設定は以下の方法で行えます：
 
-- 環境変数
-- 設定ファイル（YAML）
 - コマンドライン引数
 
 ## ディレクトリ構造
