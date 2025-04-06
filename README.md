@@ -6,10 +6,6 @@ zaico-mcp-serverは、zaico APIとMark3Labs MCPを統合するためのサーバ
 
 - 在庫データ
   - 一覧取得
-  - 個別取得
-  - 作成
-  - 更新
-  - 削除
 
 ## 必要条件
 
