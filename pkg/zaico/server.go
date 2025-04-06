@@ -1,11 +1,11 @@
 package zaico
 
 import (
-	"github.com/fukata/zaico-go/zaico"
+	gozaico "github.com/fukata/zaico-go"
 	"github.com/mark3labs/mcp-go/server"
 )
 
-func NewServer(client *zaico.Client) *server.MCPServer {
+func NewServer(client *gozaico.Client) *server.MCPServer {
 	s := server.NewMCPServer(
 		"zaico-mcp-server",
 		"1.0.0",
@@ -16,6 +16,7 @@ func NewServer(client *zaico.Client) *server.MCPServer {
 	s.AddResourceTemplate(getInventoryResourceContent(client))
 
 	// Add zaico tools - inventories
+	s.AddTool(getInventories(client))
 
 	return s
 }

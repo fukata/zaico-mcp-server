@@ -6,8 +6,12 @@ github.com/frankban/quicktest v1.14.6 h1:7Xjx+VpznH+oBnejlPUj8oUpdxnVs4f8XU8WnHk
 github.com/frankban/quicktest v1.14.6/go.mod h1:4ptaffx2x8+WTWXmUCuVU6aPUX1/Mz7zb5vbUoiM6w0=
 github.com/fsnotify/fsnotify v1.8.0 h1:dAwr6QBTBZIkG8roQaJjGof0pp0EeF+tNV7YBP3F/8M=
 github.com/fsnotify/fsnotify v1.8.0/go.mod h1:8jBTzvmWwFyi3Pb8djgCCO5IBqzKJ/Jwo8TRcHyHii0=
-github.com/fukata/zaico-go v0.0.0-20250406080027-202815e6d44f h1:9csrOGhGn5HoRzMtZKPEJ1oCm35cNhnOIcZVIGuInc0=
-github.com/fukata/zaico-go v0.0.0-20250406080027-202815e6d44f/go.mod h1:NYcwWWUNlfRsaU+Jhcb3ir8SHC17l35jZwfOR2Wbego=
+github.com/fukata/zaico-go v0.0.0-20250406104649-008914811f48 h1:PeoR6HTrn4IMFYbniFzuRHGVlb2xcDkNO3lpGitwtGc=
+github.com/fukata/zaico-go v0.0.0-20250406104649-008914811f48/go.mod h1:NYcwWWUNlfRsaU+Jhcb3ir8SHC17l35jZwfOR2Wbego=
+github.com/fukata/zaico-go v0.0.1 h1:8x2Ncybbkg4tTCrLF6P+M/D59uD1TnaGfr2jI6U6vho=
+github.com/fukata/zaico-go v0.0.1/go.mod h1:NYcwWWUNlfRsaU+Jhcb3ir8SHC17l35jZwfOR2Wbego=
+github.com/fukata/zaico-go v0.0.2 h1:V4aShUZoh8H5NoNGf89kmRAbaV+4fvd5aV6I1g4Iu3U=
+github.com/fukata/zaico-go v0.0.2/go.mod h1:NYcwWWUNlfRsaU+Jhcb3ir8SHC17l35jZwfOR2Wbego=
 github.com/go-viper/mapstructure/v2 v2.2.1 h1:ZAaOCxANMuZx5RCeg0mBdEZk7DZasvvZIxtHqx8aGss=
 github.com/go-viper/mapstructure/v2 v2.2.1/go.mod h1:oJDH3BJKyqBA2TXFhDsKDGDTlndYOZ6rGS0BRZIxGhM=
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=

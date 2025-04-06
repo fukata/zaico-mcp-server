@@ -6,12 +6,12 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/fukata/zaico-go/zaico"
+	gozaico "github.com/fukata/zaico-go"
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
 )
 
-func getInventoryResourceContent(client *zaico.Client) (mcp.ResourceTemplate, server.ResourceTemplateHandlerFunc) {
+func getInventoryResourceContent(client *gozaico.Client) (mcp.ResourceTemplate, server.ResourceTemplateHandlerFunc) {
 	return mcp.NewResourceTemplate(
 			"https://web.zaico.co.jp/inventories/{inventoryId}",
 			"Inventory Content", // Resource template
@@ -19,7 +19,7 @@ func getInventoryResourceContent(client *zaico.Client) (mcp.ResourceTemplate, se
 		inventoryResourceContentsHandler(client)
 }
 
-func inventoryResourceContentsHandler(client *zaico.Client) func(ctx context.Context, request mcp.ReadResourceRequest) ([]mcp.ResourceContents, error) {
+func inventoryResourceContentsHandler(client *gozaico.Client) func(ctx context.Context, request mcp.ReadResourceRequest) ([]mcp.ResourceContents, error) {
 	return func(ctx context.Context, request mcp.ReadResourceRequest) ([]mcp.ResourceContents, error) {
 		inventoryId, ok := request.Params.Arguments["inventoryId"].(string)
 		if !ok || len(inventoryId) == 0 {
@@ -47,7 +47,7 @@ func inventoryResourceContentsHandler(client *zaico.Client) func(ctx context.Con
 }
 
 // inventoryResourceContent returns the json styled content of the inventory.
-func inventoryResourceContent(inventory *zaico.Inventory) string {
+func inventoryResourceContent(inventory *gozaico.Inventory) string {
 	jsonStr, err := json.Marshal(inventory)
 	if err != nil {
 		return ""

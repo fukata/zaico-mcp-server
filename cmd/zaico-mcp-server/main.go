@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	gozaico "github.com/fukata/zaico-go/zaico"
+	gozaico "github.com/fukata/zaico-go"
 	"github.com/fukata/zaico-mcp-server/pkg/zaico"
 	"github.com/mark3labs/mcp-go/server"
 	"github.com/sirupsen/logrus"
@@ -81,7 +81,7 @@ func init() {
 	viper.BindPFlag("verbose", rootCmd.PersistentFlags().Lookup("verbose"))
 	rootCmd.PersistentFlags().StringP("zaico-api-key", "", "", "Zaico API Key")
 	viper.BindPFlag("zaico-api-key", rootCmd.PersistentFlags().Lookup("zaico-api-key"))
-	rootCmd.PersistentFlags().StringP("zaico-api-endpoint", "", "https://web.zaico.co.jp/api/v1", "Zaico API Endpoint")
+	rootCmd.PersistentFlags().StringP("zaico-api-endpoint", "", "https://web.zaico.co.jp/api/v1/", "Zaico API Endpoint")
 	viper.BindPFlag("zaico-api-endpoint", rootCmd.PersistentFlags().Lookup("zaico-api-endpoint"))
 }
 
