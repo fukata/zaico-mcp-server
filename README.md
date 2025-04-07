@@ -13,17 +13,27 @@ zaico-mcp-serverは、zaico APIとMark3Labs MCPを統合するためのサーバ
 
 ## インストール
 
-```bash
-go get github.com/fukata/zaico-mcp-server
-```
-
-## 使用方法
+### 方法1: go installを使用する場合
 
 ```bash
-./zaico-mcp-server --zaico-api-key <APIキー>
+# 最新バージョンをインストール
+go install github.com/fukata/zaico-mcp-server/cmd/zaico-mcp-server@latest
+
+# または特定のバージョンをインストール
+go install github.com/fukata/zaico-mcp-server/cmd/zaico-mcp-server@v1.0.0
 ```
 
-### macOSでの実行方法
+インストール後は、`$GOPATH/bin`に配置されるため、以下のコマンドで実行できます：
+
+```bash
+zaico-mcp-server --zaico-api-key <APIキー>
+```
+
+### 方法2: バイナリを直接ダウンロードする場合
+
+[リリースページ](https://github.com/fukata/zaico-mcp-server/releases)から、お使いのOSに合わせたバイナリをダウンロードしてください。
+
+#### macOSでの実行方法
 
 macOSで実行する場合、セキュリティ上の理由から以下の手順が必要です：
 
@@ -40,6 +50,12 @@ xattr -d com.apple.quarantine zaico-mcp-server-darwin-arm64
 
 # 実行
 ./zaico-mcp-server-darwin-arm64
+```
+
+## 使用方法
+
+```bash
+zaico-mcp-server --zaico-api-key <APIキー>
 ```
 
 ## 設定
