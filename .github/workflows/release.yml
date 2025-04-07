@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'
 
 jobs:
   build:
@@ -47,83 +47,18 @@ jobs:
         run: |
           GOOS=windows GOARCH=arm64 go build -o zaico-mcp-server-windows-arm64.exe ./cmd/zaico-mcp-server
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release and Upload Assets
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref_name }}
+          files: |
+            zaico-mcp-server-linux-amd64
+            zaico-mcp-server-linux-arm64
+            zaico-mcp-server-linux-arm
+            zaico-mcp-server-darwin-amd64
+            zaico-mcp-server-darwin-arm64
+            zaico-mcp-server-windows-amd64.exe
+            zaico-mcp-server-windows-arm64.exe
           draft: false
           prerelease: false
-
-      - name: Upload Linux (amd64) Binary
-        uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./zaico-mcp-server-linux-amd64
-          asset_name: zaico-mcp-server-linux-amd64
-          asset_content_type: application/octet-stream
-
-      - name: Upload Linux (arm64) Binary
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./zaico-mcp-server-linux-arm64
-          asset_name: zaico-mcp-server-linux-arm64
-          asset_content_type: application/octet-stream
-
-      - name: Upload Linux (arm) Binary
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./zaico-mcp-server-linux-arm
-          asset_name: zaico-mcp-server-linux-arm
-          asset_content_type: application/octet-stream
-
-      - name: Upload macOS (amd64) Binary
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./zaico-mcp-server-darwin-amd64
-          asset_name: zaico-mcp-server-darwin-amd64
-          asset_content_type: application/octet-stream
-
-      - name: Upload macOS (arm64) Binary
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./zaico-mcp-server-darwin-arm64
-          asset_name: zaico-mcp-server-darwin-arm64
-          asset_content_type: application/octet-stream
-
-      - name: Upload Windows (amd64) Binary
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./zaico-mcp-server-windows-amd64.exe
-          asset_name: zaico-mcp-server-windows-amd64.exe
-          asset_content_type: application/octet-stream
-
-      - name: Upload Windows (arm64) Binary
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./zaico-mcp-server-windows-arm64.exe
-          asset_name: zaico-mcp-server-windows-arm64.exe
-          asset_content_type: application/octet-stream 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
